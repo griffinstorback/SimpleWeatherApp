@@ -13,3 +13,8 @@ struct Location {
     let locationType: String // should be enum?
     let latLong: (Double, Double) // should be CLLocationCoordinate?
 }
+
+struct Weather: Decodable {
+    let woeid: Int
+    let title: String
+}

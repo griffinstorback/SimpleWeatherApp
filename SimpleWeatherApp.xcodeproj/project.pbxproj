@@ -22,6 +22,10 @@
 		854AD79A26AE1C4900D8D2A7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AD79926AE1C4900D8D2A7 /* NetworkManager.swift */; };
 		854AD7A226AE218600D8D2A7 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AD7A126AE218600D8D2A7 /* LocationsTableViewController.swift */; };
 		854AD7A726AE224100D8D2A7 /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AD7A626AE224100D8D2A7 /* WeatherDetailViewController.swift */; };
+		854D30762721DA1E00C36A99 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D30752721DA1E00C36A99 /* EndPoint.swift */; };
+		854D307B2721E03100C36A99 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D307A2721E03100C36A99 /* HTTP.swift */; };
+		854D30802723266800C36A99 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D307F2723266800C36A99 /* NetworkHelper.swift */; };
+		854D308B272335D600C36A99 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D308A272335D600C36A99 /* NetworkError.swift */; };
 		85BAB29426AE2D42009C57D1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,10 @@
 		854AD79926AE1C4900D8D2A7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		854AD7A126AE218600D8D2A7 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		854AD7A626AE224100D8D2A7 /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
+		854D30752721DA1E00C36A99 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		854D307A2721E03100C36A99 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		854D307F2723266800C36A99 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		854D308A272335D600C36A99 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				854AD79926AE1C4900D8D2A7 /* NetworkManager.swift */,
+				854D307F2723266800C36A99 /* NetworkHelper.swift */,
+				854D308A272335D600C36A99 /* NetworkError.swift */,
+				854D30752721DA1E00C36A99 /* EndPoint.swift */,
+				854D307A2721E03100C36A99 /* HTTP.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -330,13 +342,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				854AD79526AE113400D8D2A7 /* MainSplitViewController.swift in Sources */,
+				854D308B272335D600C36A99 /* NetworkError.swift in Sources */,
 				854AD76326AE108C00D8D2A7 /* SimpleWeatherApp.xcdatamodeld in Sources */,
 				8524035526AE35F70049920B /* Location.swift in Sources */,
 				85376D4C26BA165F00D2710D /* AddLocationViewModel.swift in Sources */,
+				854D30762721DA1E00C36A99 /* EndPoint.swift in Sources */,
 				854AD7A226AE218600D8D2A7 /* LocationsTableViewController.swift in Sources */,
 				854AD7A726AE224100D8D2A7 /* WeatherDetailViewController.swift in Sources */,
+				854D30802723266800C36A99 /* NetworkHelper.swift in Sources */,
 				8524035A26AE36D10049920B /* AddLocationViewController.swift in Sources */,
 				8524034D26AE35650049920B /* LocationsViewModel.swift in Sources */,
+				854D307B2721E03100C36A99 /* HTTP.swift in Sources */,
 				854AD79A26AE1C4900D8D2A7 /* NetworkManager.swift in Sources */,
 				854AD75926AE108C00D8D2A7 /* AppDelegate.swift in Sources */,
 				85BAB29426AE2D42009C57D1 /* CoreDataManager.swift in Sources */,
@@ -511,6 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YTRTBZT9JR;
 				INFOPLIST_FILE = SimpleWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,6 +547,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YTRTBZT9JR;
 				INFOPLIST_FILE = SimpleWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
