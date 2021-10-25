@@ -33,9 +33,13 @@ class NetworkManager: NetworkManagerProtocol {
     }
     
     func getLocationsForSearchText(_ searchText: String, completion: @escaping (Result<[Location],Error>) -> Void) {
-        // use metaweather api
+        NetworkHelper.getDataFromEndPointHandleResponseAndDecodeData(decodeTo: [Location].self, endPoint: EndPoint.searchLocations(searchText: searchText)) { result in
+            switch result {
+            case .success(let locations):
+                completion(.success(locations))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
-    
-    
-    
 }

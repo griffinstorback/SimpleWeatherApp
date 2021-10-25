@@ -19,6 +19,8 @@ protocol EndPointProtocol {
 // If there are many endpoints, should break this up into multiple files (e.g. UserEndPoint, WeatherEndPoint, LocationEndPoint etc.)
 public enum EndPoint {
     case weather(id: Int)
+    case searchLocations(searchText: String)
+    
 }
 
 extension EndPoint: EndPointProtocol {
@@ -36,6 +38,7 @@ extension EndPoint: EndPointProtocol {
     var path: String {
         switch self {
         case .weather(let id): return "/location/\(id)"
+        case .searchLocations: return "/location/search"
         }
     }
     
@@ -48,7 +51,10 @@ extension EndPoint: EndPointProtocol {
     }
     
     var task: HTTP.Task {
-        return .request
+        switch self {
+        case .searchLocations(let searchText): return .requestParameters(parameterEncoding: .urlEncoding, urlParameters: ["query":searchText], bodyParameters: nil)
+        default: return .request
+        }
     }
     
     var headers: HTTP.Headers {

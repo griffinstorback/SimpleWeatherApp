@@ -20,7 +20,7 @@ struct HTTP {
     
     public enum Task {
         case request
-        case requestParameters
-        case requestParametersAndHeaders
+        case requestParameters(parameterEncoding: ParameterEncoding, urlParameters: Parameters?, bodyParameters: Parameters?)
+        case requestParametersAndHeaders(parameterEncoding: ParameterEncoding, additionalHeaders: HTTP.Headers, urlParameters: Parameters?, bodyParameters: Parameters?)
     }
 }

@@ -17,6 +17,15 @@ class AddLocationViewController: UIViewController {
         view.backgroundColor = .systemTeal
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonPressed))
+        
+        NetworkManager.shared.getLocationsForSearchText("san") { result in
+            switch result {
+            case .failure(let error):
+                print("error getting locations in AddLocationVC:", error)
+            case .success(let locations):
+                print(locations)
+            }
+        }
     }
     
     @objc func doneButtonPressed() {

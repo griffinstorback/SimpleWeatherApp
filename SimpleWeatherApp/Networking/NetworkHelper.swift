@@ -7,15 +7,22 @@
 
 import Foundation
 
+public typealias NetworkTaskCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
+public typealias Parameters = [String:Any]
+
+/// This struct contains a collection of static methods used to set up a network request, start a dataTask for the request, handle the HTTP response, and decode the data into a decodable type.
 struct NetworkHelper {
-    typealias NetworkTaskCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
     
+    /// Calls getDataFromEndPointAndHandleResponse, and decodes the result.
     @discardableResult
     static func getDataFromEndPointHandleResponseAndDecodeData<T: Decodable>(session: URLSession = URLSession.shared, decodeTo type: T.Type, endPoint: EndPointProtocol, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionDataTask? {
         return getDataFromEndPointAndHandleResponse(endPoint: endPoint) { result in
             switch result {
             case .success(let data):
                 do {
+                    // Uncomment line below to debug decoding errors (prints the raw json response)
+                    print(try JSONSerialization.jsonObject(with: data, options: .mutableContainers))
+                    
                     let decodedData = try JSONDecoder().decode(type, from: data)
                     completion(.success(decodedData))
                 } catch {
@@ -27,6 +34,7 @@ struct NetworkHelper {
         }
     }
     
+    /// Calls getDataFromEndPoint, and handles the HTTP response
     @discardableResult
     static func getDataFromEndPointAndHandleResponse(session: URLSession = URLSession.shared, endPoint: EndPointProtocol, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionDataTask? {
         return getDataFromEndPoint(session: session, endPoint: endPoint) { data, response, error in
@@ -56,6 +64,7 @@ struct NetworkHelper {
         }
     }
     
+    /// Builds request based on passed in endPoint, then creates a dataTask and starts it
     @discardableResult
     static func getDataFromEndPoint(session: URLSession = URLSession.shared, endPoint: EndPointProtocol, completion: @escaping NetworkTaskCompletion) -> URLSessionDataTask? {
         let task: URLSessionDataTask?
@@ -74,6 +83,7 @@ struct NetworkHelper {
         return task
     }
     
+    /// Build the request based on values of the passed in 'endPoint'
     static func buildRequest(from endPoint: EndPointProtocol) throws -> URLRequest {
         var request = URLRequest(url: endPoint.url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
         request.httpMethod = endPoint.httpMethod.rawValue
@@ -81,15 +91,31 @@ struct NetworkHelper {
         do {
             switch endPoint.task {
             case .request:
-                break
-            case .requestParameters:
-                break
-            case .requestParametersAndHeaders:
-                break
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            case .requestParameters(let bodyEncoding, let urlParameters, let bodyParameters):
+                try configureParameters(request: &request, bodyEncoding: bodyEncoding, urlParameters: urlParameters, bodyParameters: bodyParameters)
+            case .requestParametersAndHeaders(let bodyEncoding, let additionalHeaders, let urlParameters, let bodyParameters):
+                addAdditionalHeaders(additionalHeaders, request: &request)
+                try configureParameters(request: &request, bodyEncoding: bodyEncoding, urlParameters: urlParameters, bodyParameters: bodyParameters)
             }
             return request
         } catch {
             throw error
+        }
+    }
+    
+    static func configureParameters(request: inout URLRequest, bodyEncoding: ParameterEncoding, urlParameters: Parameters?, bodyParameters: Parameters?) throws {
+        do {
+            try bodyEncoding.encode(request: &request, bodyParameters: bodyParameters, urlParameters: urlParameters)
+        } catch {
+            throw error
+        }
+    }
+    
+    static func addAdditionalHeaders(_ additionalHeaders: HTTP.Headers?, request: inout URLRequest) {
+        guard let headers = additionalHeaders else { return }
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
         }
     }
     

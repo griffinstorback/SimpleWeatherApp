@@ -61,7 +61,8 @@ class LocationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LocationsTableViewController.locationsTableViewCellId, for: indexPath)
 
-        cell.textLabel?.text = "First"
+        cell.textLabel?.text = "My location"
+        cell.imageView?.image = UIImage(systemName: "location")
 
         return cell
     }

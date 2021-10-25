@@ -26,6 +26,7 @@
 		854D307B2721E03100C36A99 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D307A2721E03100C36A99 /* HTTP.swift */; };
 		854D30802723266800C36A99 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D307F2723266800C36A99 /* NetworkHelper.swift */; };
 		854D308B272335D600C36A99 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D308A272335D600C36A99 /* NetworkError.swift */; };
+		854D30932725E9B300C36A99 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D30922725E9B300C36A99 /* ParameterEncoding.swift */; };
 		85BAB29426AE2D42009C57D1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		854D307A2721E03100C36A99 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		854D307F2723266800C36A99 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		854D308A272335D600C36A99 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		854D30922725E9B300C36A99 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,12 +142,12 @@
 		854AD75726AE108C00D8D2A7 /* SimpleWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				854D30972726192000C36A99 /* UI */,
 				8524034B26AE35210049920B /* ViewModels */,
 				8524034A26AE351B0049920B /* Models */,
 				854AD7B126AE278E00D8D2A7 /* Persistence */,
 				854AD7B026AE278200D8D2A7 /* Networking */,
 				854AD7AF26AE276100D8D2A7 /* Application */,
-				854AD7AE26AE274600D8D2A7 /* ViewControllers */,
 				854AD76426AE108D00D8D2A7 /* Assets.xcassets */,
 				854AD76626AE108D00D8D2A7 /* LaunchScreen.storyboard */,
 				854AD76926AE108D00D8D2A7 /* Info.plist */,
@@ -199,6 +201,7 @@
 				854D308A272335D600C36A99 /* NetworkError.swift */,
 				854D30752721DA1E00C36A99 /* EndPoint.swift */,
 				854D307A2721E03100C36A99 /* HTTP.swift */,
+				854D30922725E9B300C36A99 /* ParameterEncoding.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -210,6 +213,14 @@
 				85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		854D30972726192000C36A99 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				854AD7AE26AE274600D8D2A7 /* ViewControllers */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +359,7 @@
 				85376D4C26BA165F00D2710D /* AddLocationViewModel.swift in Sources */,
 				854D30762721DA1E00C36A99 /* EndPoint.swift in Sources */,
 				854AD7A226AE218600D8D2A7 /* LocationsTableViewController.swift in Sources */,
+				854D30932725E9B300C36A99 /* ParameterEncoding.swift in Sources */,
 				854AD7A726AE224100D8D2A7 /* WeatherDetailViewController.swift in Sources */,
 				854D30802723266800C36A99 /* NetworkHelper.swift in Sources */,
 				8524035A26AE36D10049920B /* AddLocationViewController.swift in Sources */,

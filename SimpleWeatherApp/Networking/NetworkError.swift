@@ -15,4 +15,6 @@ enum NetworkError: Error {
     case noData
     case unableToDecode
     case checkNetworkConnection
+    case missingURL
+    case encodingFailed
 }
