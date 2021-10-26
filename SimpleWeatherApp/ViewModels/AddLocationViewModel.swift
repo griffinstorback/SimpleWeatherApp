@@ -18,13 +18,15 @@ class AddLocationViewModel: AddLocationViewModelProtocol, ObservableObject {
     
     var displayedLocations = CurrentValueSubject<[Location], Never>([])
     var searchText = CurrentValueSubject<String, Never>("")
-    var cancellables = [AnyCancellable]()
+    var cancellables = Set<AnyCancellable>()
     
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared) {
         self.networkManager = networkManager
         
         // when search text changed, update search results
-        searchText.sink { [weak self] updatedText in
+        searchText
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .sink { [weak self] updatedText in
             self?.updateDisplayedLocations(text: updatedText)
         }.store(in: &cancellables)
     }

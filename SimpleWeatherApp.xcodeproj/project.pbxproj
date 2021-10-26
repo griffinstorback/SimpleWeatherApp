@@ -27,6 +27,8 @@
 		854D30802723266800C36A99 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D307F2723266800C36A99 /* NetworkHelper.swift */; };
 		854D308B272335D600C36A99 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D308A272335D600C36A99 /* NetworkError.swift */; };
 		854D30932725E9B300C36A99 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D30922725E9B300C36A99 /* ParameterEncoding.swift */; };
+		85AEB912272871F100339D52 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB911272871F100339D52 /* CoreDataHelper.swift */; };
+		85AEB917272877F300339D52 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEB916272877F300339D52 /* CoreDataStack.swift */; };
 		85BAB29426AE2D42009C57D1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		854D307F2723266800C36A99 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		854D308A272335D600C36A99 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		854D30922725E9B300C36A99 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		85AEB911272871F100339D52 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		85AEB916272877F300339D52 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +215,8 @@
 			children = (
 				854AD76126AE108C00D8D2A7 /* SimpleWeatherApp.xcdatamodeld */,
 				85BAB29326AE2D42009C57D1 /* CoreDataManager.swift */,
+				85AEB911272871F100339D52 /* CoreDataHelper.swift */,
+				85AEB916272877F300339D52 /* CoreDataStack.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -358,7 +364,9 @@
 				8524035526AE35F70049920B /* Location.swift in Sources */,
 				85376D4C26BA165F00D2710D /* AddLocationViewModel.swift in Sources */,
 				854D30762721DA1E00C36A99 /* EndPoint.swift in Sources */,
+				85AEB912272871F100339D52 /* CoreDataHelper.swift in Sources */,
 				854AD7A226AE218600D8D2A7 /* LocationsTableViewController.swift in Sources */,
+				85AEB917272877F300339D52 /* CoreDataStack.swift in Sources */,
 				854D30932725E9B300C36A99 /* ParameterEncoding.swift in Sources */,
 				854AD7A726AE224100D8D2A7 /* WeatherDetailViewController.swift in Sources */,
 				854D30802723266800C36A99 /* NetworkHelper.swift in Sources */,

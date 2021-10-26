@@ -44,6 +44,16 @@ extension Location: Decodable {
     }
 }
 
+extension Location: Hashable {
+    static func == (lhs: Location, rhs: Location) -> Bool {
+        lhs.woeid == rhs.woeid
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(woeid)
+    }
+}
+
 struct Weather: Decodable {
     let woeid: Int
     let title: String
